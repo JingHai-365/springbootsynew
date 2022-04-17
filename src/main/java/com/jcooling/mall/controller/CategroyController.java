@@ -77,7 +77,7 @@ public class CategroyController {
         }else{
             return ApiRestResponse.error(JcoolingMallExceptionEnum.NEED_ADMIN);
         }*/
-
+        //test
         Category category = new Category();
         BeanUtils.copyProperties(updateCategoryReq,category);
         categoryService.update(category);
