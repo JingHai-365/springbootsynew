@@ -77,8 +77,7 @@ public class CategroyController {
         }else{
             return ApiRestResponse.error(JcoolingMallExceptionEnum.NEED_ADMIN);
         }*/
-        //test git sentence
-        //sout
+
         Category category = new Category();
         BeanUtils.copyProperties(updateCategoryReq,category);
         categoryService.update(category);
@@ -106,7 +105,7 @@ public class CategroyController {
     @PostMapping("/category/list")
     @ResponseBody
     public ApiRestResponse listCategoryForCustomer(){
-        List<CategoryVO> categoryVOS = categoryService.listForCustomer();
+        List<CategoryVO> categoryVOS = categoryService.listForCustomer(0);
         return ApiRestResponse.success(categoryVOS);
     }
 }

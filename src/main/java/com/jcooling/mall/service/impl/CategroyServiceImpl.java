@@ -58,9 +58,9 @@ public class CategroyServiceImpl implements CategoryService {
         }
         int count = categoryMapper.updateByPrimaryKeySelective(updateCategory);
         if(count==0){
-            throw new JcoolingMallException(JcoolingMallExceptionEnum.UPDATE_FAILED);
-        }
+        throw new JcoolingMallException(JcoolingMallExceptionEnum.UPDATE_FAILED);
     }
+}
 
     public void delete(Integer id){
         Category categoryOld = categoryMapper.selectByPrimaryKey(id);
@@ -83,9 +83,9 @@ public class CategroyServiceImpl implements CategoryService {
 
     @Cacheable(value = "listForCustomer")
     @Override
-    public List<CategoryVO> listForCustomer() {
+    public List<CategoryVO> listForCustomer(Integer categoryId) {
         ArrayList<CategoryVO> categoryVOList= new ArrayList<>();
-        recursiveFindCategories(categoryVOList,0);
+        recursiveFindCategories(categoryVOList,categoryId);
         return categoryVOList;
     }
 

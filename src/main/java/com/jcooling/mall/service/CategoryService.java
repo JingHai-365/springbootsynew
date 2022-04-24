@@ -19,5 +19,5 @@ public interface CategoryService {
     public void update(Category updateCategory);
     public void delete(Integer id);
     public PageInfo listForAdmin(Integer pageNumber, Integer pageSize);
-    public List<CategoryVO> listForCustomer();
+    public List<CategoryVO> listForCustomer(Integer categoryId);
 }

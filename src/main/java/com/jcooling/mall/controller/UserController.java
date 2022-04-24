@@ -56,7 +56,7 @@ public class UserController {
             return ApiRestResponse.error(JcoolingMallExceptionEnum.NEED_PASSWORD);
         }
         User user = userService.login(username, password);
-        System.out.println(user.toString()+"*********************************************************");
+        //System.out.println(user.toString()+"*********************************************************");
         //保存用户信息时，不保存密码
         user.setPassword(null);
         session.setAttribute(Constant.SMOOTH_MALL_USER,user);

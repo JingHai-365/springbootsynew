@@ -23,7 +23,9 @@ public enum JcoolingMallExceptionEnum {
     NAME_NOT_NULL(10012,"目录名称已存在"),
     CREATE_FAILED(10013,"新增失败"),
     NAME_EXISTED(10014,"不允许重名"),
-    DELETE_FAILED(10015,"删除失败");
+    DELETE_FAILED(10015,"删除失败"),
+    MKDIR_FAILED(10016,"创建目录失败"),
+    UPLOAD_FAILED(10017,"上传失败");
 
 
     //异常编码
