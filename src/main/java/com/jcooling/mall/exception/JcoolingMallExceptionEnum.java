@@ -2,7 +2,7 @@ package com.jcooling.mall.exception;
 /**
 * Cteate by IntelliJ IDEA.
 * @author: JingHai
-* @data: 2022/04/11
+* @date: 2022/04/11
 * @time: 10:31:30
 * @version: 1.0
 * @description: nothing.
@@ -10,7 +10,6 @@ package com.jcooling.mall.exception;
 public enum JcoolingMallExceptionEnum {
     NEED_USER_NAME(10001,"用户名不能为空"),
     NEED_PASSWORD(10002,"密码不能为空"),
-    SYSTEM_ERROR(10003,"系统异常"),
     USER_EXISTED(10004,"用户已经存在"),
     INSERT_FAILED(10005,"插入用户失败"),
     PASSWORD_TOO_LONG_OR_SHORT(10006,"密码长度小于8或者大于16"),
@@ -25,7 +24,11 @@ public enum JcoolingMallExceptionEnum {
     NAME_EXISTED(10014,"不允许重名"),
     DELETE_FAILED(10015,"删除失败"),
     MKDIR_FAILED(10016,"创建目录失败"),
-    UPLOAD_FAILED(10017,"上传失败");
+    UPLOAD_FAILED(10017,"上传失败"),
+    NOT_SALE(10018, "商品状态不可售"),
+    NOT_ENOUGH(10019,"商品库存不足"),
+
+    SYSTEM_ERROR(20000,"系统异常");
 
 
     //异常编码

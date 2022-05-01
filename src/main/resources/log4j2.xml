@@ -9,7 +9,7 @@
             <ThresholdFilter level="info" onMatch="ACCEPT"
                              onMismatch="DENY"/>
             <PatternLayout
-                    pattern="[%d{MM:dd HH:mm:ss.SSS}] [%level] [%logger{36}] - %msg%n"/>
+                    pattern="%style{[%d{yyyy:MM:dd HH:mm:ss.SSS}]}{green} %highlight{[%level]  [%logger{36}] - %msg%n%throwable}{FATAL=cyan, ERROR=red, WARN=yellow, INFO=magenta, DEBUG=green, TRACE=blue]}"/>
         </Console>
 
         <!--debug级别日志文件输出-->
@@ -22,7 +22,7 @@
                 <ThresholdFilter level="info" onMatch="DENY" onMismatch="NEUTRAL"/>
             </Filters>
             <!-- 日志格式 -->
-            <PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+            <PatternLayout pattern="[%d{yyyy:MM:dd HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
             <!-- 策略 -->
             <Policies>
                 <!-- 每隔一天转存 -->
@@ -42,7 +42,7 @@
                 <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
             </Filters>
             <!-- 日志格式 -->
-            <PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+            <PatternLayout pattern="[%d{yyyy:MM:dd HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
             <!-- 策略 -->
             <Policies>
                 <!-- 每隔一天转存 -->
@@ -61,7 +61,7 @@
                 <ThresholdFilter level="error"/>
             </Filters>
             <!-- 日志格式 -->
-            <PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+            <PatternLayout pattern="[%d{yyyy:MM:dd HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
             <Policies>
                 <!-- 每隔一天转存 -->
                 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>

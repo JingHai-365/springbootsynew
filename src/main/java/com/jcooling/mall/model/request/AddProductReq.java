@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
  * Cteate by IntelliJ IDEA.
  *
  * @author: JingHai
- * @data: 2022/4/23
+ * @date: 2022/4/23
  * @time: 1:40
  * @description: nothing.
  * @version: 1.0

@@ -1,6 +1,10 @@
 package com.jcooling.mall.model.dao;
 
+import com.jcooling.mall.model.ov.CartVO;
 import com.jcooling.mall.model.pojo.Cart;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CartMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +18,8 @@ public interface CartMapper {
     int updateByPrimaryKeySelective(Cart record);
 
     int updateByPrimaryKey(Cart record);
+
+    List<CartVO> selectList(@Param("userId") Integer userId);
+
+    Cart selectByUserIdAndProduct(@Param("userId") Integer userId,@Param("productId") Integer productId);
 }

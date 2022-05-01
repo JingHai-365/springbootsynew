@@ -10,7 +10,7 @@ import java.util.Set;
 /**
 * Cteate by IntelliJ IDEA.
 * @author: JingHai
-* @data: 2022/04/11
+* @date: 2022/04/11
 * @time: 10:29:59
 * @version: 1.0
 * @description: nothing.
@@ -33,4 +33,17 @@ public class Constant {
     public interface ProductListOrderBy{
         Set<String> PRICE_ASC_DESC = Sets.newHashSet("price desc","price asc");
     }
+
+    //增加商品的上下架状态
+    public interface SaleStatus{
+        int NOTSALE = 0;//商品的下架状态
+        int SALE = 1;//商品的上架状态
+    }
+
+    //购物车是否选中状态
+    public interface Cart{
+        int UNCHCKED = 0;//购物车未选中
+        int CHCKED = 1;//购物车选中
+    }
+
 }

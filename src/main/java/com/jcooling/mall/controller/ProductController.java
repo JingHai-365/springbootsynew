@@ -28,7 +28,7 @@ import java.util.UUID;
  * Cteate by IntelliJ IDEA.
  *
  * @author: JingHai
- * @data: 2022/4/22
+ * @date: 2022/4/22
  * @time: 23:58
  * @description: nothing.
  * @version: 1.0
@@ -128,7 +128,7 @@ public class ProductController {
     }
 
     @ApiOperation("前台商品详情")
-    @GetMapping("product/detail")
+    @GetMapping("/product/detail")
     @ResponseBody
     public ApiRestResponse detail(@RequestParam("id") Integer id){
         Product product =productService.detail(id);
@@ -136,7 +136,7 @@ public class ProductController {
     }
 
     @ApiOperation("前台商品详情列表")
-    @GetMapping("product/list")
+    @GetMapping("/product/list")
     @ResponseBody
     public ApiRestResponse list(ProductListReq productListReq){
         PageInfo list =productService.list(productListReq);

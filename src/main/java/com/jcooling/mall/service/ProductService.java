@@ -10,7 +10,7 @@ import com.jcooling.mall.model.request.UpdateProductReq;
  * Cteate by IntelliJ IDEA.
  *
  * @author: JingHai
- * @data: 2022/4/23
+ * @date: 2022/4/23
  * @time: 2:04
  * @description: nothing.
  * @version: 1.0

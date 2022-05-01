@@ -12,6 +12,11 @@ spring:
     host: localhost
     password: ''
     port: 6379
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1000MB
 file:
   upload:
     dir: F:/Code/Gallery/image/imagessy05/
+

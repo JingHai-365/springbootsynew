@@ -1,4 +1,4 @@
-package com.jcooling.mall.model.request;
+package com.jcooling.mall.model.query;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import java.util.List;
  * Cteate by IntelliJ IDEA.
  *
  * @author: JingHai
- * @data: 2022/4/23
+ * @date: 2022/4/23
  * @time: 19:55
  * @description: nothing.
  * @version: 1.0

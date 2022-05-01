@@ -4,7 +4,7 @@ package com.jcooling.mall.model.request;
  * Cteate by IntelliJ IDEA.
  *
  * @author: JingHai
- * @data: 2022/4/23
+ * @date: 2022/4/23
  * @time: 19:44
  * @description: nothing.
  * @version: 1.0

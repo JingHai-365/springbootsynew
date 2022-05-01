@@ -9,7 +9,7 @@ import com.jcooling.mall.model.dao.ProductMapper;
 import com.jcooling.mall.model.ov.CategoryVO;
 import com.jcooling.mall.model.pojo.Product;
 import com.jcooling.mall.model.request.AddProductReq;
-import com.jcooling.mall.model.request.ProductListQuery;
+import com.jcooling.mall.model.query.ProductListQuery;
 import com.jcooling.mall.model.request.ProductListReq;
 import com.jcooling.mall.model.request.UpdateProductReq;
 import com.jcooling.mall.service.CategoryService;
@@ -26,7 +26,7 @@ import java.util.List;
  * Cteate by IntelliJ IDEA.
  *
  * @author: JingHai
- * @data: 2022/4/23
+ * @date: 2022/4/23
  * @time: 2:05
  * @description: nothing.
  * @version: 1.0
@@ -123,13 +123,11 @@ public class ProductServiceImpl implements ProductService {
         //定义排序规则接口Constant.ProductListOrderBy.PRICE_ASC_DESC
         if (Constant.ProductListOrderBy.PRICE_ASC_DESC.contains(orderBy)) {
             //获取的前端排序规则支持接口中的排序规则，使用规则进行构建分页对象
-            PageHelper.startPage(productListReq.getPageNum(), productListReq.getPageSize(),
-                    orderBy);
+            PageHelper.startPage(productListReq.getPageNum(), productListReq.getPageSize(),orderBy);
         } else {
             //不支持接口中的规则，不进行排序
             PageHelper.startPage(productListReq.getPageNum(), productListReq.getPageSize());
         }
-        //
         List<Product> productList = productMapper.selectList(productListQuery);
         PageInfo pageInfo = new PageInfo(productList);
         return pageInfo;

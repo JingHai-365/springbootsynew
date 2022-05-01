@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
 /**
 * Cteate by IntelliJ IDEA.
 * @author: JingHai
-* @data: 2022/04/11
+* @date: 2022/04/11
 * @time: 10:37:10
 * @version: 1.0
 * @description: nothing.

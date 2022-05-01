@@ -175,7 +175,7 @@
     order by update_time desc
   </select>
 
-  <select id="selectList" resultMap="BaseResultMap" parameterType="com.jcooling.mall.model.request.ProductListQuery">
+  <select id="selectList" resultMap="BaseResultMap" parameterType="com.jcooling.mall.model.query.ProductListQuery">
     select
     <include refid="Base_Column_List"/>
     from smooth_mall_product
@@ -185,7 +185,7 @@
       </if>
       <if test="query.categoryIds != null">
         and category_id in
-        <foreach collection="query.categoryIds" close=")" item="item" open="(" separator=",">
+        <foreach collection="query.categoryIds" open="("  item="item" close=")" separator=",">
           #{item}
         </foreach>
       </if>

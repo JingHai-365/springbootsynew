@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 /**
 * Cteate by IntelliJ IDEA.
 * @author: JingHai
-* @data: 2022/04/11
+* @date: 2022/04/11
 * @time: 10:34:30
 * @version: 1.0
 * @description: nothing.

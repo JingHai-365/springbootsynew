@@ -20,7 +20,7 @@ import java.util.List;
 /**
 * Cteate by IntelliJ IDEA.
 * @author: JingHai
-* @data: 2022/04/11
+* @date: 2022/04/11
 * @time: 10:36:41
 * @version: 1.0
 * @description: nothing.
@@ -83,9 +83,9 @@ public class CategroyServiceImpl implements CategoryService {
 
     @Cacheable(value = "listForCustomer")
     @Override
-    public List<CategoryVO> listForCustomer(Integer categoryId) {
+    public List<CategoryVO> listForCustomer(Integer parentId) {
         ArrayList<CategoryVO> categoryVOList= new ArrayList<>();
-        recursiveFindCategories(categoryVOList,categoryId);
+        recursiveFindCategories(categoryVOList,parentId);
         return categoryVOList;
     }
 

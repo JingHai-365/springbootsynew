@@ -1,7 +1,7 @@
 package com.jcooling.mall.model.dao;
 
 import com.jcooling.mall.model.pojo.Product;
-import com.jcooling.mall.model.request.ProductListQuery;
+import com.jcooling.mall.model.query.ProductListQuery;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
