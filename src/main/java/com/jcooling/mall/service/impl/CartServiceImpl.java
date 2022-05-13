@@ -65,7 +65,7 @@ public class CartServiceImpl implements CartService {
     private void validProduct(Integer productId, Integer count) {
         Product product = productMapper.selectByPrimaryKey(productId);
         //判断商品是否存在，商品是否上架
-        if (product == null  || product.getStatus().equals(Constant.SaleStatus.NOTSALE)) {
+        if (product == null  || product.getStatus().equals(Constant.SaleStatus.NOT_SALE)) {
             throw new JcoolingMallException(JcoolingMallExceptionEnum.NOT_SALE);
         }
         //判断商品库存
@@ -84,5 +84,53 @@ public class CartServiceImpl implements CartService {
         }
         return cartVOS;
     }
+
+    @Override
+    public List<CartVO> update(Integer userId, Integer productId, Integer count) {
+        validProduct(productId,count);
+        Cart cart = cartMapper.selectByUserIdAndProduct(userId, productId);
+        //判断查出来的cart是不是为空
+        if (cart == null) {
+           throw new JcoolingMallException(JcoolingMallExceptionEnum.UPDATE_FAILED);
+        }else {
+            count = cart.getQuantity() +count;
+            Cart cartNew = new Cart();
+            cartNew.setQuantity(count);
+            cartNew.setId(cart.getId());
+            cartNew.setProductId(cart.getProductId());
+            cartNew.setUserId(cart.getUserId());
+            cartNew.setSelected(Constant.Cart.CHCKED);
+            cartMapper.updateByPrimaryKeySelective(cartNew);
+        }
+        return this.list(userId);
+   }
+
+    @Override
+    public List<CartVO> delete(Integer userId, Integer productId) {
+        Cart cart = cartMapper.selectByUserIdAndProduct(userId, productId);
+        //判断查出来的cart是不是为空
+        if (cart == null) {
+            throw new JcoolingMallException(JcoolingMallExceptionEnum.DELETE_FAILED);
+        }else {
+            cartMapper.deleteByPrimaryKey(cart.getId());
+        }
+        return this.list(userId);
+    }
+
+    @Override
+    public List<CartVO> selectOrNot(Integer userId, Integer productId, Integer selected){
+        //将购物车查询出来
+        Cart cart = cartMapper.selectByUserIdAndProduct(userId, productId);
+        //判断查出来的cart是不是为空
+        if (cart == null) {
+            //这个商品之前不再购物车，无法选中或不选中
+            throw new JcoolingMallException(JcoolingMallExceptionEnum.UPDATE_FAILED);
+        } else {
+            //这个商品已经在购物车里了，则可以选中或不选中
+            cartMapper.selectOrNot(userId,productId,selected);
+        }
+        return this.list(userId);
+    }
+
 
 }

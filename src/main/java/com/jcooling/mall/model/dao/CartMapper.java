@@ -19,7 +19,10 @@ public interface CartMapper {
 
     int updateByPrimaryKey(Cart record);
 
+    Cart selectByUserIdAndProduct(@Param("userId") Integer userId,@Param("productId") Integer productId);
+
     List<CartVO> selectList(@Param("userId") Integer userId);
 
-    Cart selectByUserIdAndProduct(@Param("userId") Integer userId,@Param("productId") Integer productId);
+    Integer selectOrNot(@Param("userId") Integer userId,@Param("productId") Integer productId,@Param("selected") Integer selected);
+
 }

@@ -36,7 +36,7 @@ public class Constant {
 
     //增加商品的上下架状态
     public interface SaleStatus{
-        int NOTSALE = 0;//商品的下架状态
+        int NOT_SALE = 0;//商品的下架状态
         int SALE = 1;//商品的上架状态
     }
 
@@ -45,5 +45,7 @@ public class Constant {
         int UNCHCKED = 0;//购物车未选中
         int CHCKED = 1;//购物车选中
     }
+
+
 
 }

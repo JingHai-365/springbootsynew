@@ -10,7 +10,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @MapperScan("com.jcooling.mall.model.dao")
 @SpringBootApplication
 @EnableSwagger2
-@EnableWebMvc
+@EnableWebMvc//加了这个会使Springmvc自动配置失效
 @EnableCaching
 public class SpringbootsyApplication {
 

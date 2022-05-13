@@ -27,6 +27,13 @@ public enum JcoolingMallExceptionEnum {
     UPLOAD_FAILED(10017,"上传失败"),
     NOT_SALE(10018, "商品状态不可售"),
     NOT_ENOUGH(10019,"商品库存不足"),
+    CART_SELECTED_EMPTY(10020,"购物车勾选的商品为空"),
+    NO_ENUM(10021,"未找到对应的枚举类"),
+    NO_ORDER(10022,"订单不存在"),
+    NO_YOUR_ORDER(10023,"订单不属于你"),
+    WRONG_ORDER(10024,"订单状态不符"),
+
+
 
     SYSTEM_ERROR(20000,"系统异常");
 
