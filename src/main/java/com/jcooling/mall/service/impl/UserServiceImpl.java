@@ -3,6 +3,7 @@ package com.jcooling.mall.service.impl;
 import com.jcooling.mall.exception.JcoolingMallException;
 import com.jcooling.mall.exception.JcoolingMallExceptionEnum;
 import com.jcooling.mall.model.dao.UserMapper;
+import com.jcooling.mall.model.ov.UserVO;
 import com.jcooling.mall.model.pojo.User;
 import com.jcooling.mall.service.UserService;
 import com.jcooling.mall.utils.MD5Utils;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
+
 /**
 * Cteate by IntelliJ IDEA.
 * @author: JingHai
@@ -76,5 +79,10 @@ public class UserServiceImpl implements UserService {
     public boolean checkAdminRole(User user) {
         //1 is ordinary users,2 is administrators
         return user.getRole().equals(2);
+    }
+
+    @Override
+    public List<UserVO> list() {
+        return null;
     }
 }

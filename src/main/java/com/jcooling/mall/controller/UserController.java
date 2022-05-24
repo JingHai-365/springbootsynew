@@ -4,6 +4,7 @@ import com.jcooling.mall.common.ApiRestResponse;
 import com.jcooling.mall.common.Constant;
 import com.jcooling.mall.exception.JcoolingMallException;
 import com.jcooling.mall.exception.JcoolingMallExceptionEnum;
+import com.jcooling.mall.model.ov.UserVO;
 import com.jcooling.mall.model.pojo.User;
 import com.jcooling.mall.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
+
 /**
 * Cteate by IntelliJ IDEA.
 * @author: JingHai
@@ -46,8 +49,7 @@ public class UserController {
 
     @PostMapping("/login")
     @ResponseBody
-    public ApiRestResponse login(@RequestParam("username") String username,
-                                 @RequestParam("password") String password, HttpSession session) throws JcoolingMallException {
+    public ApiRestResponse login(@RequestParam(value = "username") String username, @RequestParam("password") String password, HttpSession session) throws JcoolingMallException {
         //username与password的空值校验
         if(StringUtils.isEmpty(username)){
             return ApiRestResponse.error(JcoolingMallExceptionEnum.NEED_USER_NAME);
@@ -105,4 +107,17 @@ public class UserController {
         }
     }
 
+    @PostMapping("/userlist")
+    @ResponseBody
+    public ApiRestResponse userList(HttpSession session) throws JcoolingMallException {
+        List<UserVO> list;
+        User currentUser = (User) session.getAttribute(Constant.SMOOTH_MALL_USER);
+        if (currentUser == null) {
+            return ApiRestResponse.error(JcoolingMallExceptionEnum.NEED_LOING);
+        }
+        if (userService.checkAdminRole(currentUser)){
+           list = userService.list();
+        }
+        return ApiRestResponse.success();
+    }
 }

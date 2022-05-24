@@ -274,7 +274,7 @@ public class OrderServiceImpl implements OrderService {
         if (!userService.checkAdminRole(UserFilter.currentUser) && !order.getUserId().equals(UserFilter.currentUser.getId())) {
             throw new JcoolingMallException(JcoolingMallExceptionEnum.NO_YOUR_ORDER);
         }
-        // 发货后完结订单，订单状态是否付款
+        // 发货后完结订单
         if (order.getOrderStatus() == OrderStatusEnum.DELIVERED.getCode()){
             order.setOrderStatus(OrderStatusEnum.FINISHED.getCode());
             order.setEndTime(new Date());
